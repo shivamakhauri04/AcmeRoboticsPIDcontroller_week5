@@ -1,6 +1,6 @@
 //! "Copyright [2019] Shivam Akhauri and Chinmay Joshi"
 /** @author Shivam Akhauri, Chinmay Joshi
- * @file Test-Driven Development exercise
+ * @file Test-Driven Development exercise for pid
 * @brief PID Controller implementation
 * 
 * Details.  PID controller implementation for a new mobile robot product development!
@@ -30,7 +30,7 @@ class PID_Controller {
         double compute(void);
 };
 
-
+// extern PID_Controller pid;
 
 
 #endif  //  PID_CONTROLLER_H_

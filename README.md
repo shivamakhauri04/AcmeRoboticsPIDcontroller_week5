@@ -38,7 +38,6 @@ The link to code coverage can be found here
 
 ### Compiling and Running**
 
-'''
 
 store the file in your home directory
 cd &lt;path to directory&gt;
@@ -54,7 +53,6 @@ cppcheck --enable=all --std=c++11 -I include/
 To run program: ./app/shell-app
 To test program: ./test/cpp-test
 
-'''
 
 ### Contributors
 

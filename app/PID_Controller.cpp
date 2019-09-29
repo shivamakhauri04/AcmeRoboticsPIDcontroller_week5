@@ -2,7 +2,7 @@
 /** @author Shivam Akhauri, Chinmay Joshi
 * @file Test-Driven Development exercise
 * @brief PID Controller implementation
-* Details.  PID controller implementation for a new mobile robot product development!
+* Details.  PID controller class dfination for a new mobile robot product development!
 */
 #include <iostream>
 #include "../include/PID_Controller.h"
@@ -17,8 +17,6 @@
 * @param _ki Multiplier for integration
 * @param _setPoint Expected value
 * @param _velocity Current value
-* @param _max Maximum allowed limit of the output
-* @param _min Minimum allowed limit of the output
 */
 PID_Controller::PID_Controller(double _dt, double _kp, double _kd,
 double _ki, double _setpoint, double _velocity) {
@@ -31,17 +29,27 @@ double _ki, double _setpoint, double _velocity) {
 }
 
 /**
-* @brief Main compute function for PID Controller
+* @brief compute function for calculating pid values--- stub function
 * @author Shivam Akhauri
 */
 double PID_Controller::compute() {
     double output = 5;
     return output;
 }
+/**
+* @brief assign maximum velocity value for the pid controller
+* @param _max Maximum allowed limit of the output
+* @author Shivam Akhauri
+*/
 double PID_Controller::max_velocity(double _max) {;
     max = _max;
     return max;
 }
+/**
+* @brief assign maximum velocity value for the pid controller
+* @param _min Minimum allowed limit of the output
+* @author Shivam Akhauri
+*/
 double PID_Controller::min_velocity(double _min) {;
     min = _min;
     return min;

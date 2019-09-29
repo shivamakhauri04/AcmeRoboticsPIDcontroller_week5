@@ -9,12 +9,12 @@
 #include "../include/PID_Controller.h"
 
 /**
-* @brief Unit test for the Compute function
+* @brief Unit test for the Compute function. All input values as zero.velocity returned should be zero.So test should fail
 */
 TEST(PID_Controller, ComputeFunction) {
-  PIDController pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);
+  PIDController pid(0, 0, 0, 0, 0, 0);
   double vel = pid.compute();
-  EXPECT_EQ(5.0, vel);
+  EXPECT_EQ(0.0, vel);
 }
 /**
 * @brief Unit test to check the maximum boundary of the velocity of the PID

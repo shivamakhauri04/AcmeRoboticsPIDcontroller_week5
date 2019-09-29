@@ -40,11 +40,11 @@ double PID_Controller::compute() {
 }
 double PID_Controller::max_velocity(double _max) {;
     max = _max;
-    return _max;
+    return max;
 }
 double PID_Controller::min_velocity(double _min) {;
     min = _min;
-    return _min;
+    return min;
 }
 
 

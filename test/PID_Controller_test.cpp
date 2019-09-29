@@ -10,7 +10,6 @@
 
 /**
 * @brief Unit test for the Compute function
-* @author Shivam Akhauri
 */
 TEST(PID_Controller, ComputeFunction) {
   PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);
@@ -19,7 +18,6 @@ TEST(PID_Controller, ComputeFunction) {
 }
 /**
 * @brief Unit test to check the maximum boundary of the velocity of the PID
-* @author Shivam Akhauri
 */
 TEST(PID_Controller, MaxVelocity) {
   PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);
@@ -28,7 +26,6 @@ TEST(PID_Controller, MaxVelocity) {
 }
 /**
 * @brief Unit test to check the manimum boundary of the velocity of the PID
-* @author Shivam Akhauri
 */
 TEST(PID_Controller, MinVelocity) {
   PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);

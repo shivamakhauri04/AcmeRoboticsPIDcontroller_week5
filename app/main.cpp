@@ -14,7 +14,7 @@
 */
 int main() {
     // Constructor for the PID_Controller class
-    PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);
+    PIDController pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);
     // Function call to assign max velocity
     pid.max_velocity(10);
     // Function call to assign minimum velocity

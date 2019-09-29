@@ -18,7 +18,7 @@
 * @param _setPoint Expected value
 * @param _velocity Current value
 */
-PID_Controller::PID_Controller(double _dt, double _kp, double _kd,
+PIDController::PIDController(double _dt, double _kp, double _kd,
 double _ki, double _setpoint, double _velocity) {
     dt = _dt;
     kp = _kp;
@@ -32,7 +32,7 @@ double _ki, double _setpoint, double _velocity) {
 * @brief compute function for calculating pid values--- stub function
 * @author Shivam Akhauri
 */
-double PID_Controller::compute() {
+double PIDController::compute() {
     double output = 5;
     return output;
 }
@@ -41,7 +41,7 @@ double PID_Controller::compute() {
 * @param _max Maximum allowed limit of the output
 * @author Shivam Akhauri
 */
-double PID_Controller::max_velocity(double _max) {;
+double PIDController::max_velocity(double _max) {;
     max = _max;
     return max;
 }
@@ -50,7 +50,7 @@ double PID_Controller::max_velocity(double _max) {;
 * @param _min Minimum allowed limit of the output
 * @author Shivam Akhauri
 */
-double PID_Controller::min_velocity(double _min) {;
+double PIDController::min_velocity(double _min) {;
     min = _min;
     return min;
 }

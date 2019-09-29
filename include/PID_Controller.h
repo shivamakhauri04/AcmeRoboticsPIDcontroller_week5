@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-class PID_Controller {
+class PIDController {
  private:
         double dt;
         double kp;
@@ -23,7 +23,7 @@ class PID_Controller {
  public:
         double max;
         double min;
-        PID_Controller(double _dt, double _kp, double _kd,
+        PIDController(double _dt, double _kp, double _kd,
         double _ki, double _setpoint, double _velocity);
         double compute(void);
         double max_velocity(double max);

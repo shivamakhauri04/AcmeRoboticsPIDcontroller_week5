@@ -30,11 +30,11 @@ The link to code coverage can be found here
 
 ### Travis path :
 
-[![Build Status](https://travis-ci.org/shivamakhauri04/cpp-boilerplate.svg?branch=team_a)](https://travis-ci.org/shivamakhauri04/cpp-boilerplate)
+[![Build Status](https://travis-ci.org/shivamakhauri04/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/shivamakhauri04/cpp-boilerplate)
 
 ### Coveralls :
 
-[![Coverage Status](https://coveralls.io/repos/github/shivamakhauri04/cpp-boilerplate/badge.svg?branch=team_a)](https://coveralls.io/github/shivamakhauri04/cpp-boilerplate?branch=team_a)
+[![Coverage Status](https://coveralls.io/repos/github/shivamakhauri04/cpp-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/shivamakhauri04/cpp-boilerplate?branch=master)
 
 ### Compiling and Running
 

@@ -21,12 +21,11 @@
 * @param _min Minimum allowed limit of the output
 */
 PID_Controller::PID_Controller(double _dt, double _kp, double _kd,
-double _ki, double _setpoint, double _velocity, double _max, double _min) {
+double _ki, double _setpoint, double _velocity) {
     dt = _dt;
     kp = _kp;
     kd = _kd;
     ki = _ki;
-    max = _max;
     velocity = _velocity;
     setpoint = _setpoint;
 }
@@ -38,6 +37,14 @@ double _ki, double _setpoint, double _velocity, double _max, double _min) {
 double PID_Controller::compute() {
     double output = 5;
     return output;
+}
+double PID_Controller::max_velocity(double _max) {;
+    max = _max;
+    return _max;
+}
+double PID_Controller::min_velocity(double _min) {;
+    min = _min;
+    return _min;
 }
 
 

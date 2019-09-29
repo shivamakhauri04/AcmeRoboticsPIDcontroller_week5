@@ -9,8 +9,10 @@
 #include "PID_Controller.cpp"
 
 int main() {
-    PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5, 100.0, 5.0);
+    PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);
+    pid.max_velocity(100);
+    pid.min_velocity(1);
     double output = pid.compute();
-    std::cout << "output = " << output << std::endl;
+    std::cout << "velocity = " << output << std::endl;
     return 0;
 }

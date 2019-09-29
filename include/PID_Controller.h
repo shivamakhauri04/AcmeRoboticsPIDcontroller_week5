@@ -30,7 +30,4 @@ class PID_Controller {
         double min_velocity(double min);
 };
 
-// extern PID_Controller pid;
-
-
 #endif  //  PID_CONTROLLER_H_

@@ -6,7 +6,7 @@
 * Details.  PID controller implementation for a new mobile robot product development!
 */
 #include <stdio.h>
-#include "PID_Controller.cpp"
+#include "../include/PID_Controller.h"
 
 int main() {
     PID_Controller pid(0.1, 22.0, 0.88, 0.99, 0.01, 0.5);

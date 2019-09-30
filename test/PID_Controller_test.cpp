@@ -12,7 +12,7 @@
 * @brief Unit test for the Compute function. All input values as zero.velocity returned should be zero.So test should fail
 */
 TEST(PID_Controller, ComputeFunction) {
-  PIDController pid(0, 0, 0, 0, 0, 0);
+  PIDController pid(1.0, 0.0, 0.0, 0.0, 0.0, 0.0);
   double vel = pid.compute();
   EXPECT_EQ(0.0, vel);
 }

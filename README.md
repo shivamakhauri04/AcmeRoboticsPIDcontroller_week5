@@ -20,22 +20,19 @@ proportional term, the derivative term and the integral term.
 
 ### GMOCK details
 
-Refactored the code to make a ParentPID virtual class and a derived class PID. The derieved class PID redifines the ParentPID.
+Refactored the code to make a ParentPID virtual class and a derived class PID. The derieved class PID redifines the ParentPID. (The original implementation can be understood from the UML (https://github.com/Chinj17/AcmeRoboticsPIDcontroller_week5Assignment/blob/master/UML.png) vs the new the UML  https://github.com/shivamakhauri04/AcmeRoboticsPIDcontroller_week5/blob/GMock_Extra_Credit/UMLs/new_virtual/new.png
+
+Both are added to the UML's folder in the repo.
+
 The gmock and the gtest code can be found in /test/PID_Controller_test.cpp
 The Mock methods are defined in /test/basePID.h
 
 Dependency:
-Add "../vendor/googletest/googlemock/include ${CMAKE_SOURCE_DIR}/include"   --- to the target_include_directories as an addition to the previuos skeleton
-Add PUBLIC gmock to the target link libraries
 
+Add "../vendor/googletest/googlemock/include ${CMAKE_SOURCE_DIR}/include"   --- to the target_include_directories as an addition to the previuos skeleton.
 
-### Implementation Details
+Add PUBLIC gmock to the target link libraries.
 
-The implementation inputs variables kp, kd and ki. It defines a compute
-function which calculates the corrected velocity, given a set-point. The
-implementation is done in C++ and Google style guides have been
-followed. We initially stub the compute function to verify the pipeline
-sanity and work across teams to have the full implementation
 
 
 ### Compiling and Running

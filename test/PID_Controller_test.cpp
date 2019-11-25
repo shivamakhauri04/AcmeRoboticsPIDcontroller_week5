@@ -38,9 +38,6 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 
 TEST(GmockStatic, computePIDImplemeINCLUDE_PID_H_ntationtest) {
   PID testobj;
-  // gtest the computes function
-  double temp = testobj.compute(1, 2);
-  EXPECT_EQ(-100, temp);
   // gmock the compute function
   std::unique_ptr<ParentMock> node(new ParentMock);
   std::unique_ptr<GmockStatic> m;
@@ -48,6 +45,9 @@ TEST(GmockStatic, computePIDImplemeINCLUDE_PID_H_ntationtest) {
   EXPECT_CALL(*node , compute(1, 2))
   .Times(testing::AtMost(1)).WillOnce(testing::Return(0.0));
   m->compute(std::move(node));
+  // gtest the computes function
+  double temp = testobj.compute(1, 2);
+  EXPECT_EQ(-100, temp);
 }
 
 TEST(GmockStatic, proportionalGainSetterTest) {

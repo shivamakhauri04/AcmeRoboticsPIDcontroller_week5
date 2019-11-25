@@ -17,13 +17,11 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 **/
 
 /**
-* @file main.cpp
+* @file PID_Controller.cpp
 * @author Shivam Akhauri 
 * @date 22 November 2019
 * @copyright 2019 Shivam Akhauri
-* @brief Contains a general implementation of pid 
-* for inheritance . Contains getter , constructor , destructor and 
-* function to calculate pid
+* @brief function defination for the parent class
 */
 
 #include <iostream>
@@ -31,6 +29,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 #include "PID_Interface.h"
 
 PID::PID() {
+  // initialize the class variable values to default values
   kd = 1;
   ki = 0.1;
   kp = .5;
@@ -42,6 +41,7 @@ PID::PID() {
 }
 
 PID::PID(double _kp, double _kd, double _ki, double _dt) {
+  // initilize the class variable values
   kp = _kp;
   kd = _kd;
   ki = _ki;
@@ -52,29 +52,34 @@ PID::PID(double _kp, double _kd, double _ki, double _dt) {
 
 
 PID::~PID() {
+  // destructor/**
 }
 
 double PID::getKp() {
+  // getter for kp
   return kp;
 }
 
 double PID::getKd() {
+  // getter for kd
   return kd;
 }
 
 double PID::getKi() {
+  // getter for ki
   return ki;
 }
 
 double PID::compute(double targetSetPoint, double actualVelocity) {
   // calculate error
     double error = targetSetPoint - actualVelocity;
-
+    // integral gain
     iPart += error * sampleTime;
-
+    // pid output
     double output = kp * error + ki * iPart +
     kd * ((error - stepError) / sampleTime);
     stepError = error;
+    // daturation values for the pid
     if ( output > outMax ) {
       output = outMax;
       } else {

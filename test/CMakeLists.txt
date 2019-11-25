@@ -4,7 +4,7 @@ add_executable(
     cpp-test
     main.cpp
     basePID.h
-    GmockStatic.h
+    ParentPIDGmockStatic.h
     PID_Controller_test.cpp
     ../app/PID_Controller.cpp
     ../app/PID_Interface.cpp

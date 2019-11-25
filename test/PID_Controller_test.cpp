@@ -28,7 +28,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "basePID.h"
-#include "GmockStatic.h"
+#include "ParentPIDGmockStatic.h"
 #include "PID_Interface.h"
 #include "PID_Controller.h"
 
@@ -36,11 +36,11 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
  * @brief      TEST gmock and gtest 
  */
 
-TEST(GmockStatic, computePIDImplemeINCLUDE_PID_H_ntationtest) {
+TEST(ParentPIDGmockStatic, computePIDImplemeINCLUDE_PID_H_ntationtest) {
   PID testobj;
   // gmock the compute function
   std::unique_ptr<ParentMock> node(new ParentMock);
-  std::unique_ptr<GmockStatic> m;
+  std::unique_ptr<ParentPIDGmockStatic> m;
   // check for function call
   EXPECT_CALL(*node , compute(1, 2))
   .Times(testing::AtMost(1)).WillOnce(testing::Return(0.0));
@@ -50,35 +50,35 @@ TEST(GmockStatic, computePIDImplemeINCLUDE_PID_H_ntationtest) {
   EXPECT_EQ(-100, temp);
 }
 
-TEST(GmockStatic, proportionalGainSetterTest) {
+TEST(ParentPIDGmockStatic, proportionalGainSetterTest) {
   PID testobj;
   EXPECT_EQ(1, testobj.setKp(3));
   std::unique_ptr<ParentMock> node(new ParentMock);
-  std::unique_ptr<GmockStatic> m;
+  std::unique_ptr<ParentPIDGmockStatic> m;
   // check for function call
   EXPECT_CALL(*node, setKp(3)).Times(testing::AtMost(1));
   m->set_Kp(std::move(node));
 }
 
-TEST(GmockStatic, integralGainSetterTest) {
+TEST(ParentPIDGmockStatic, integralGainSetterTest) {
   // gtest the integral gai
   PID testobj;
   EXPECT_EQ(1, testobj.setKi(1.7));
   // gmock the integral gain
   std::unique_ptr<ParentMock> node(new ParentMock);
-  std::unique_ptr<GmockStatic> m;
+  std::unique_ptr<ParentPIDGmockStatic> m;
   // check for function call
   EXPECT_CALL(*node, setKi(1.7)).Times(testing::AtMost(1));
   m->set_Ki(std::move(node));
 }
 
-TEST(GmockStatic, derievativeGainSetterTest) {
+TEST(ParentPIDGmockStatic, derievativeGainSetterTest) {
   // gtest the derievative gain
   PID testobj;
   EXPECT_EQ(1, testobj.setKd(4));
   // gmock the integral gain
   std::unique_ptr<ParentMock> node(new ParentMock);
-  std::unique_ptr<GmockStatic> m;
+  std::unique_ptr<ParentPIDGmockStatic> m;
   // check for function call
   EXPECT_CALL(*node, setKd(4)).Times(testing::AtMost(1));
   m->set_Kd(std::move(node));

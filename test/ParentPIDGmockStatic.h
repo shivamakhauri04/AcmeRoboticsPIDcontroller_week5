@@ -23,6 +23,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 * @copyright 2019 Shivam Akhauri
 * @brief set the gmock static classes.
 * make the function call for gmock testing
+* and pass values
 */
 
 #include <memory>
@@ -30,7 +31,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 #include <gmock/gmock.h>
 #include "PID_Interface.h"
 
-class GmockStatic : public ::testing::Test {
+class ParentPIDGmockStatic : public ::testing::Test {
  public:
   // static test compute
   void compute(std::unique_ptr<ParentPID> node) {

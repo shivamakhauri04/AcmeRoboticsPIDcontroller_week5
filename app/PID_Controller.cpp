@@ -1,59 +1,84 @@
-//! "Copyright [2019] Shivam Akhauri and Chinmay Joshi"
-/** @author Shivam Akhauri, Chinmay Joshi
-* @file Test-Driven Development exercise
-* @brief PID Controller implementation
-* Details.  PID controller class dfination for a new mobile robot product development!
-*/
-#include <iostream>
-#include "../include/PID_Controller.h"
-
+/**
+Copyright [MIT] 2019 Shivam Akhauri
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ the Software, and to permit persons to whom the Software is furnished to do so,
+ subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
+ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER 
+ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+**/
 
 /**
-* @brief Parameterized constructor to set required values
-* @author Shivam Akhauri
-* @param _dt Time interval between each cycle
-* @param _kp Multiplier for proportional
-* @param _kd Multiplier for derivation
-* @param _ki Multiplier for integration
-* @param _setPoint Expected value
-* @param _velocity Current value
+* @file main.cpp
+* @author Shivam Akhauri 
+* @date 22 November 2019
+* @copyright 2019 Shivam Akhauri
+* @brief Contains a general implementation of pid 
+* for inheritance . Contains getter , constructor , destructor and 
+* function to calculate pid
 */
-PIDController::PIDController(double _dt, double _kp, double _kd,
-double _ki, double _setpoint, double _velocity) {
-    dt = _dt;
-    kp = _kp;
-    kd = _kd;
-    ki = _ki;
-    velocity = _velocity;
-    setpoint = _setpoint;
+
+#include <iostream>
+#include "PID_Controller.h"
+#include "PID_Interface.h"
+
+PID::PID() {
+  kd = 1;
+  ki = 0.1;
+  kp = .5;
+  sampleTime = 0.2;
+  stepError = 0;
+  iPart = 0;
+  outMax = 10;
+  outMin = -100;
 }
 
-/**
-* @brief compute function for calculating pid values--- stub function
-* @author Shivam Akhauri
-*/
-double PIDController::compute() {
-    double output = 5;
+PID::PID(double _kp, double _kd, double _ki, double _dt) {
+  kp = _kp;
+  kd = _kd;
+  ki = _ki;
+  sampleTime = _dt;
+  stepError = 0;
+  iPart = 0;
+}
+
+
+PID::~PID() {
+}
+
+double PID::getKp() {
+  return kp;
+}
+
+double PID::getKd() {
+  return kd;
+}
+
+double PID::getKi() {
+  return ki;
+}
+
+double PID::compute(double targetSetPoint, double actualVelocity) {
+  // calculate error
+    double error = targetSetPoint - actualVelocity;
+
+    iPart += error * sampleTime;
+
+    double output = kp * error + ki * iPart +
+    kd * ((error - stepError) / sampleTime);
+    stepError = error;
+    if ( output > outMax ) {
+      output = outMax;
+      } else {
+      output = outMin;
+      }
     return output;
 }
-/**
-* @brief assign maximum velocity value for the pid controller
-* @param _max Maximum allowed limit of the output
-* @author Shivam Akhauri
-*/
-double PIDController::max_velocity(double _max) {;
-    max = _max;
-    return max;
-}
-/**
-* @brief assign maximum velocity value for the pid controller
-* @param _min Minimum allowed limit of the output
-* @author Shivam Akhauri
-*/
-double PIDController::min_velocity(double _min) {;
-    min = _min;
-    return min;
-}
-
-
-

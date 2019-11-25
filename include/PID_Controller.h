@@ -1,33 +1,74 @@
-//! "Copyright [2019] Shivam Akhauri and Chinmay Joshi"
-/** @author Shivam Akhauri, Chinmay Joshi
-* @file Test-Driven Development exercise for pid---header file
-* @brief declaration for PID_Controller class
-* Details. Private and public members of the class
-*/
+
 #ifndef PID_CONTROLLER_H_
 #define PID_CONTROLLER_H_
 
 #include <iostream>
+#include "PID_Interface.h"
 
-class PIDController {
- private:
-        double dt;
-        double kp;
-        double kd;
-        double ki;
-        double setpoint;
-        double velocity;
-        double integral = 0;
-        double pre_error = 0;
-
+/**
+ * @brief Derieved Class
+ *  of the the Parent class
+ */
+class PID : public ParentPID {
  public:
-        double max;
-        double min;
-        PIDController(double _dt, double _kp, double _kd,
-        double _ki, double _setpoint, double _velocity);
-        double compute(void);
-        double max_velocity(double max);
-        double min_velocity(double min);
+  /**
+   * @brief default constructor PID
+   * @param none
+   * @return none
+   * Initializes all gain values Kp,Kd,KI to 0
+   */
+  PID();
+
+  /**
+   * @brief constructor PID class
+   * @param kp (double)
+   * @param kd (double)
+   * @param ki (double)
+   * @param sampleTime (double)
+   * @return none
+   * Initializes gains and sampleTime to some values
+   */
+  PID(double kp, double kd, double ki, double sampleTime);
+
+  /**
+   * @brief Destructor PID class
+   * @param none
+   * @return none
+   * destroys class objects 
+   */
+  ~PID();
+
+    /**
+   * @brief getKi function
+   * @param none
+   * @return ki gain (double)
+   * returns the integral gain
+   */
+  double getKi();
+  /**
+   * @brief getKP function
+   * @param none
+   * @return kp (double)
+   * returns the proportional gain
+   */
+  double getKp();
+
+  /**
+   * @brief getKD function
+   * @param none
+   * @return kd gain of type double
+   * returns the derievative gain
+   */
+  double getKd();
+
+  /**
+   * @brief compute function
+   * @param targetSetPoint (double)
+   * @param actualVelocity (double)
+   * @return double
+   */
+  double compute(double targetSetpoint, double actualVelocity);
+
 };
 
-#endif  //  PID_CONTROLLER_H_
+#endif /* PID_CONTROLLER_H_ */

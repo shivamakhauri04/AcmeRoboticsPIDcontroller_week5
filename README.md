@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/shivamakhauri04/Roomba_robot_vacuum_cleaner/blob/master/LICENSE.txt)
+
 ### PID Controller implementation from ACME Robotics. 
 
 Welcome to Acme Robotics. Here, we present a PID for our new mobile
@@ -16,6 +18,11 @@ Logic : changeCalculatedByPID = Kp*(expectedValue-currentValue)+Kd*(previousValu
 In the above formula, we see that the PID output is an summation of the
 proportional term, the derivative term and the integral term.
 
+### GMOCK details
+
+Refactored the code to make a parent virtual class and a derived class. The child class redifines the parent.
+
+
 ### Implementation Details
 
 The implementation inputs variables kp, kd and ki. It defines a compute
@@ -24,46 +31,25 @@ implementation is done in C++ and Google style guides have been
 followed. We initially stub the compute function to verify the pipeline
 sanity and work across teams to have the full implementation
 
-### Code Coverage and Travis
-
-The link to code coverage can be found here
-
-### Travis path :
-
-[![Build Status](https://travis-ci.org/shivamakhauri04/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/shivamakhauri04/cpp-boilerplate)
-
-### Coveralls :
-
-[![Coverage Status](https://coveralls.io/repos/github/shivamakhauri04/cpp-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/shivamakhauri04/cpp-boilerplate?branch=master)
 
 ### Compiling and Running
 
-
-store the file in your home directory
-
-cd &lt;path to directory&gt;
-
-cd /Week5/
-
-mkdir build
-
-cd build
-
-cmake ..
-
-make
-
-cd ..
-
-cppcheck --enable=all --std=c++11 -I include/ --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+'''
+-git clone "https://github.com/shivamakhauri04/AcmeRoboticsPIDcontroller_week5.git"
+-cd AcmeRoboticsPIDcontroller_week5/
+-mkdir build
+-cd build
+-cmake ..
+-make
 
 To run program: ./app/shell-app
-
 To test program: ./test/cpp-test
 
+-cd ..
+-cppcheck --enable=all --std=c++11 -I include --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+-cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
+
+'''
 
 ### Contributors
-
--Shivam Akhauri (Driver)
-
-Chinmay Joshi (Navigator)
+-Shivam Akhauri

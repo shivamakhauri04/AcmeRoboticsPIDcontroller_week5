@@ -66,8 +66,10 @@ double PID::compute(double targetSetPoint, double actualVelocity) {
     stepError = error;
     // daturation values for the pid
     if ( output > outMax ) {
+      // saturate to max value
       output = outMax;
       } else {
+      // saturate to min value
       output = outMin;
       }
     return output;

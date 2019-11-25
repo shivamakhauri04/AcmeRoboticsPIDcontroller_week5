@@ -55,21 +55,6 @@ PID::~PID() {
   // destructor/**
 }
 
-double PID::getKp() {
-  // getter for kp
-  return kp;
-}
-
-double PID::getKd() {
-  // getter for kd
-  return kd;
-}
-
-double PID::getKi() {
-  // getter for ki
-  return ki;
-}
-
 double PID::compute(double targetSetPoint, double actualVelocity) {
   // calculate error
     double error = targetSetPoint - actualVelocity;

@@ -40,14 +40,11 @@ int main() {
   // Object
   ParentPID* parent;
   PID pid;
-  
   // address point of virtual class to base class
   parent = &pid;
   parent->setKi(2.1);
   parent->setKp(1);
   parent->setKd(2);
- 
-
   // compute the PID value
   change = pid.compute(2, 4);
   std::cout << "Computed velocity is: " << change << std::endl;

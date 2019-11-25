@@ -26,7 +26,8 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 #include "PID_Interface.h"
 
 ParentPID::ParentPID(): kp(0), kd(0), ki(0)
-, sampleTime(0), stepError(0), iPart(0) {
+, sampleTime(0), stepError(0), iPart(0)
+, outMax(10), outMin(-100) {
 }
 
 ParentPID::~ParentPID() {

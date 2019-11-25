@@ -32,11 +32,6 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 #include "PID_Interface.h"
 #include "PID_Controller.h"
 
-using ::testing::Return;
-using ::testing::AtLeast;
-using ::testing::_;
-
-
 /**
  * @brief      TEST gmock and gtest 
  */
@@ -49,7 +44,8 @@ TEST(GmockStatic, computePIDImplemeINCLUDE_PID_H_ntationtest) {
   // gmock the compute function
   std::unique_ptr<ParentMock> node(new ParentMock);
   std::unique_ptr<GmockStatic> m;
-  EXPECT_CALL(*node , compute(1, 2)).Times(1).WillOnce(Return(0.0));
+  // check for function call
+  EXPECT_CALL(*node , compute(1, 2)).Times(1).WillOnce(testing::Return(0.0));
   m->compute(std::move(node));
 }
 
@@ -58,6 +54,7 @@ TEST(GmockStatic, proportionalGainSetterTest) {
   EXPECT_EQ(1, testobj.setKp(3));
   std::unique_ptr<ParentMock> node(new ParentMock);
   std::unique_ptr<GmockStatic> m;
+  // check for function call
   EXPECT_CALL(*node, setKp(3)).Times(1);
   m->set_Kp(std::move(node));
 }
@@ -69,6 +66,7 @@ TEST(GmockStatic, integralGainSetterTest) {
   // gmock the integral gain
   std::unique_ptr<ParentMock> node(new ParentMock);
   std::unique_ptr<GmockStatic> m;
+  // check for function call
   EXPECT_CALL(*node, setKi(1.7)).Times(1);
   m->set_Ki(std::move(node));
 }
@@ -80,6 +78,7 @@ TEST(GmockStatic, derievativeGainSetterTest) {
   // gmock the integral gain
   std::unique_ptr<ParentMock> node(new ParentMock);
   std::unique_ptr<GmockStatic> m;
+  // check for function call
   EXPECT_CALL(*node, setKd(4)).Times(1);
   m->set_Kd(std::move(node));
 }

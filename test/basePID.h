@@ -34,7 +34,7 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
 
 class ParentMock : public ParentPID {
  public:
-  // mock method for Ki 
+  // mock method for Ki
   MOCK_METHOD1(setKi, bool(double ki));
   // mock method for Kp
   MOCK_METHOD1(setKp, bool(double kp));

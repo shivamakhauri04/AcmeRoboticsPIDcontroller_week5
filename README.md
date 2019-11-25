@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/shivamakhauri04/Roomba_robot_vacuum_cleaner/blob/master/LICENSE.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/shivamakhauri04/AcmeRoboticsPIDcontroller_week5/blob/GMock_Extra_Credit/License.txt)       
 
 ### PID Controller implementation from ACME Robotics. 
 
@@ -11,7 +11,7 @@ as the difference between a desired set-point (SP) and a measured
 process variable (PV) and applies a correction based on proportional,
 integral, and derivative terms (denoted by P, I, and D respectively).
 
-### Prelude
+### Overview
 
 Logic : changeCalculatedByPID = Kp*(expectedValue-currentValue)+Kd*(previousValue-CurrentValue)+(previousIntegral+Ki*currentError)
 
@@ -20,7 +20,13 @@ proportional term, the derivative term and the integral term.
 
 ### GMOCK details
 
-Refactored the code to make a parent virtual class and a derived class. The child class redifines the parent.
+Refactored the code to make a ParentPID virtual class and a derived class PID. The derieved class PID redifines the ParentPID.
+The gmock and the gtest code can be found in /test/PID_Controller_test.cpp
+The Mock methods are defined in /test/basePID.h
+
+Dependency:
+Add "../vendor/googletest/googlemock/include ${CMAKE_SOURCE_DIR}/include"   --- to the target_include_directories as an addition to the previuos skeleton
+Add PUBLIC gmock to the target link libraries
 
 
 ### Implementation Details
@@ -34,7 +40,8 @@ sanity and work across teams to have the full implementation
 
 ### Compiling and Running
 
-'''
+```
+
 -git clone "https://github.com/shivamakhauri04/AcmeRoboticsPIDcontroller_week5.git"
 -cd AcmeRoboticsPIDcontroller_week5/
 -mkdir build
@@ -46,10 +53,17 @@ To run program: ./app/shell-app
 To test program: ./test/cpp-test
 
 -cd ..
+
+#### to run Cppcheck
 -cppcheck --enable=all --std=c++11 -I include --suppress=missingIncludeSystem $( find . -name *.cpp | grep -vE -e "^./build/" -e "^./vendor/" )
+
+#### to run Cpplint
 -cpplint $( find . -name \*.hpp -or -name \*.cpp | grep -vE -e "^./build/" -e "^./vendor/" -e "^./docs/" -e "^./results" )
 
-'''
+```
 
-### Contributors
--Shivam Akhauri
+
+## Copyright
+
+Copyright (C) 2019 Shivam Akhauri
+For license information, see [LICENSE.txt](LICENSE.txt).
